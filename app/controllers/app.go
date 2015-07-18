@@ -42,25 +42,6 @@ func (c App) Index() revel.Result {
 		panic(err.Error())
 	}
 
-//	SELECT
-	rows, err := db.Query("SELECT id, title FROM test")
-	if err != nil {
-		panic(err.Error())
-	}
-
-	defer rows.Close()
-	fmt.Println(rows)
-	for rows.Next() {
-		var ID int
-		var post_title string
-		if err := rows.Scan(&ID, &post_title); err != nil {
-			panic(err.Error())
-		}
-		fmt.Println(ID, post_title)
-	}
-
-
-
   	greeting:="Aloha World"
 	return c.Render(greeting)
 }
